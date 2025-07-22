@@ -52,4 +52,5 @@ def download(filename):
     return send_from_directory(DECRYPTED_FOLDER, clean_name, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 10000))  # Render gives a PORT env variable
+    app.run(host='0.0.0.0', port=port)         # Required for Render to run Flask
